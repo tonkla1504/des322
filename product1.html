@@ -1,43 +1,80 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>TKShoes</title>
+    <!--
+        DES322 Class-08
+        StudentID: 6222770305
+        Student Name: Saran Wongvipas
+        TA Group: DES322 G1 TA Ratthamontree Burimas
+        Digital Business: An online store for selling surdskates
+        Created Date: 14-Oct-2021
+    -->
+    <style>
+        .access-point1{border:1px solid black; height: 100px; text-align: center; background-color: gray;}
+        .access-point2{border:1px solid black; height: 100px; text-align: center; background-color: lemonchiffon;}
+    </style>
+<head>
 </head>
-
 <body>
+    <div name="site-header">
+        <!-- Header -->
+        <nav class="navbar navbar-expand-lg navbar-dark "style="background-color: #7437af";>
+            <a class="navbar-brand" href="#">
+    
+            </a>
+            <a class="navbar-brand" href="#">TKShoes</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="#">Energy week⚡️</a>
+                    <a class="nav-link" href="#">Men</a>
+                    <a class="nav-link" href="#">Women</a>
+                    <a class="nav-link" href="#">Kid</a>
+                    <a class="nav-link" href="#">Sneaker</a>
+                </div>
+                
+            </div>
+
+            <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary my-2" type="submit">Search</button>
+            </form>
+            <div class="col-md-1.5">
+                <a class="navbar-brand" href="#">
+                    <img src="/TKimages/icon2.png" width="50" height="50" alt="">
+                </a>
+                <a class="navbar-brand" href="site.html">0 items in cart</a>
+            </div>
+            <div class="col-md-1.5">
+                <a class="navbar-brand" href="#">
+                    <img src="/TKimages/signin2.jpg" width="50" height="50" alt="">
+                    <span class="badge badge-default">Sign in</span>
+                </a>
+            </div>
+        </nav>
+            </div>
+    </div>
     <div class="app_container">
         <div id="app">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">TKShoes</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item" v-on:click="ShowHomePage">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Promotions</a>
-                            </li>
-                            <li class="nav-item" v-on:click="ShowMyCart">
+                    <div class="container" style="margin-top : 30px;" v-if="product_page">
+                            <button class="nav-item" v-on:click="ShowMyCart">
                                 <a class="nav-link" href="#">My Cart ({{countitem}})</a>
-                            </li>
-
-                        </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                            </button> 
                     </div>
                 </div>
             </nav>
             <div class="container" style="margin-top : 30px;" v-if="product_page">
-                Products ::
+                In Stock Products ::
                 <hr/>
                 <div class="home container">
                     <div class="row">
@@ -74,7 +111,7 @@
                 <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
                 <p class="card-text">
-                    ${{product.price}}
+                    {{product.price}}THB
                     <br/>
                     <small>
                     {{product.shortdesc}}
@@ -87,16 +124,15 @@
     </template>
 
     <template id="cartitem-template">
-        <div>{{item.name}} - {{item.count}}</div>
+        <div>{{item.name}} - {{item.count}} --->{{item.price*item.count}}THB </div>
+        <a class="btn btn-primary" href="#">Remove</a>
     </template>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@next"></script>
     <!-- <script src="https://unpkg.com/vuex@4.0.0/dist/vuex.global.js"></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         let app = Vue.createApp({
-
             data: function() {
                 return {
                     
@@ -164,6 +200,7 @@
                         this.cart.push({
                             id: item.id,
                             name: item.name,
+                            price: item.price,
                             count: 1
                         })
                     }
@@ -215,8 +252,59 @@
 
         app.mount("#app")
     </script>
-
-
-</body>
-
-</html>
+    <div name="site-navv" class="" style="background-color:#d38273" ;="">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-4">
+                            <div name="site-header" class="">
+                                        <a class="navbar-brand">Contact us</a>
+                                        
+                                    
+                            </div>
+                            <address>
+                                <strong>Location</strong><br> World of Sports
+    
+                                Adi-Dassler-Strasse 1
+                                
+                                Herzogenaurach, Bavaria 91074, DE
+                                (59) 473-2348<br> <strong>More about TKShoes</strong><br>
+                        </address>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-4">
+                            <a class="navbar-brand">Social media</a>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <img alt="Bootstrap Image Preview" iframe="" width="50" height="50" src="/TKimages/instagram.png">
+                                </div>
+                                <div class="col-md-1">
+                                    <img alt="Bootstrap Image Preview" iframe="" width="50" height="50" src="/TKimages/twitter.png">
+                                </div>
+                                <div class="col-md-1">
+                                    <img alt="Bootstrap Image Preview" iframe="" width="50" height="50" src="/TKimages/facebook.png">
+                                </div>
+                                <div class="col-md-1">
+                                    <img alt="Bootstrap Image Preview" iframe="" width="50" height="50" src="/TKimages/line.png">
+                                </div>
+                            </div>
+                            <license>
+                                <strong></strong><br> ©2021, TKShoes, Inc.
+                        </address>
+                        </div>
+    
+                        
+                            </div> 
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </body>    
